@@ -7,8 +7,7 @@ creg c[3];
 // Start from |100>
 x q[0];
 
-// Distribute the single excitation across the chain
-// theta0 = 2*arccos(1/sqrt(3)) ≈ 1.9106332362490184
+
 ry(1.9106332362490184) q[0];
 cx q[0], q[1];
 
