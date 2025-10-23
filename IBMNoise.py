@@ -14,7 +14,7 @@ SIMULATOR_SEED = 20251021
 TRANSPILE_SEED = 20251021
 np.random.seed(NP_RANDOM_SEED)
 
-FONT_SCALE_FACTOR = 1.25 # Increase fonts by 25%
+FONT_SCALE_FACTOR = 1.25 
 
 # Ensure output directory exists
 OUT_DIR = "IBMNoise_figures"
@@ -27,7 +27,7 @@ num_classical_2_players = 2
 num_w_players = 3  # W-State 
 num_variable_classical_players = 3 # Main classical team size (e.g., 5C)
 
-# === Core Utility Functions (MOVED TO TOP TO PREVENT 'NOT DEFINED' ERROR) ===
+
 def generate_army_defense():
     paths = ['A', 'B']
     defended_path = np.random.choice(paths)
