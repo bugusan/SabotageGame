@@ -14,7 +14,7 @@ SIMULATOR_SEED = 20251021
 TRANSPILE_SEED = 20251021
 np.random.seed(NP_RANDOM_SEED)
 
-FONT_SCALE_FACTOR = 1.25 # Increase fonts by 25%
+FONT_SCALE_FACTOR = 1.25 
 
 # Ensure output directory exists
 OUT_DIR = "RealWorldManualNoise_figures"
@@ -24,8 +24,8 @@ os.makedirs(OUT_DIR, exist_ok=True)
 num_rounds = 100
 num_bell_players = 2 
 num_classical_2_players = 2 
-num_w_players = 3  # W-State 
-num_variable_classical_players = 3 # Main classical team size (e.g., 5C)
+num_w_players = 3  # W-Stte 
+num_variable_classical_players = 3 
 
 simulator = Aer.get_backend("aer_simulator")
 
@@ -204,11 +204,6 @@ df_effectiveness = pd.DataFrame({
 csv_path_effectiveness = os.path.join(OUT_DIR, "Effectiveness_Scores_ManualNoise_HistData.csv")
 df_effectiveness.to_csv(csv_path_effectiveness, index=False)
 print(f"Saved effectiveness histogram data to: {csv_path_effectiveness}")
-
-
-# ==============================================================================
-# 2. PLOTTING WITH INCREASED FONT SIZE (25%) AND CLARIFIED LABELS
-# ==============================================================================
 
 # Set default font sizes based on the scale factor
 SMALL_SIZE = 10 * FONT_SCALE_FACTOR
