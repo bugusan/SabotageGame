@@ -4,12 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # --- Reproducibility ---
-# Setting the seed ensures all random choices (defense, classical strategy, rule-based choices) are repeatable.
 NP_RANDOM_SEED = 20251021
 np.random.seed(NP_RANDOM_SEED)
 
 # --- Custom Parameter ---
-FONT_SCALE_FACTOR = 1.25  # Increase fonts by 25%
+FONT_SCALE_FACTOR = 1.25 
 
 # Ensure output directory exists
 OUT_DIR = "ClassicalStrategy_figures"
@@ -192,5 +191,5 @@ plt.title("Effectiveness Comparison: Classical vs Hybrid Adaptive Heuristic (HAH
 plt.xticks(np.arange(min_score, max_score + 1) + 1.5*width)
 plt.legend(loc="best")
 plt.tight_layout()
-plt.savefig(os.path.join(OUT_DIR, "ClassicalStrategy_Effectiveness_Comparison.png"), dpi=300) # Kept file name the same
-# plt.show() # Disabled plt.show() for terminal execution
+plt.savefig(os.path.join(OUT_DIR, "ClassicalStrategy_Effectiveness_Comparison.png"), dpi=300) 
+# plt.show() 
