@@ -26,11 +26,11 @@ num_rounds = 100
 num_bell_players = 2 
 num_classical_2_players = 2 
 num_w_players = 3  # W-State 
-num_variable_classical_players = 3 # Classical Team  - Set to match W-state size
+num_variable_classical_players = 3 
 
 simulator = Aer.get_backend("aer_simulator")
 
-# === Helper Functions for Reproducibility ===
+
 def choices_from_bitstring(bitstr, num_players):
     """
     Maps a single measured bitstring to sabotage choices.
@@ -42,7 +42,6 @@ def choices_from_bitstring(bitstr, num_players):
     # Ensure result has correct number of choices
     return ['A' if b == '1' else 'B' for b in bits[:num_players]]
 
-# === Circuits (Pure Measurement - Ideal Conditions) ===
 
 def generate_bell_state():
     qc = QuantumCircuit(2, 2)
@@ -69,7 +68,6 @@ def generate_w_state(num_qubits):
     # Transpile with a fixed seed
     return transpile(qc, simulator, optimization_level=1, seed_transpiler=TRANSPILE_SEED)
 
-# === Quantum Strategy Execution (Deterministic Sampling) ===
 
 def run_quantum_circuit(circuit, num_players):
     """Runs circuit, samples one bitstring from the memory (1024 shots)."""
@@ -143,9 +141,9 @@ mean_classical_variable = float(np.mean(classical_variable_scores))
 mean_bell = float(np.mean(quantum_bell_scores))
 mean_w = float(np.mean(quantum_w_scores))
 
-# ==============================================================================
-# 1. SAVE CSV DATA
-# ==============================================================================
+
+# 1. SAVE CSV DaTA
+
 
 # Data frame for accumulated scores
 df_accumulated = pd.DataFrame({
@@ -171,12 +169,6 @@ csv_path_effectiveness = os.path.join(OUT_DIR, "Effectiveness_Scores_PureMeasure
 df_effectiveness.to_csv(csv_path_effectiveness, index=False)
 print(f"Saved effectiveness score data to: {csv_path_effectiveness}")
 
-
-# ==============================================================================
-# 2. PLOTTING WITH INCREASED FONT SIZE (25%) AND CLARIFIED LABELS
-# ==============================================================================
-
-# Set default font sizes based on the scale factor
 SMALL_SIZE = 10 * FONT_SCALE_FACTOR
 MEDIUM_SIZE = 12 * FONT_SCALE_FACTOR
 LARGE_SIZE = 14 * FONT_SCALE_FACTOR
