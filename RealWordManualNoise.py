@@ -51,7 +51,7 @@ def generate_bell_state():
 def generate_w_state(num_qubits):
     qc = QuantumCircuit(num_qubits, num_qubits)
     qc.x(0)  # Start from |10...0>
-    
+
     # === GENERALIZED R-Y/CX CASCADE FOR W-STATE PREPARATION ===
     for i in range(num_qubits - 1):
         # Angle formula: theta_k = 2 * arccos(sqrt((N - k - 1) / (N - k)))
